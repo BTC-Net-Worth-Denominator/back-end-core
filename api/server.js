@@ -22,7 +22,13 @@ server.get('/', (req, res) => {
 })
 
 server.get('/api/users', async (req, res) => {
+
+  try {
   res.json(await getAllUsers())
+  } catch (err){
+
+    res.status(500).json({ message: 'error in retrieving users'})
+  }
 })
 
 server.post('/api/users', async (req, res) => {
