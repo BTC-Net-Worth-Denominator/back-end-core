@@ -1,29 +1,26 @@
-const express = require('express')
-const helmet = require('helmet')
-const cors = require('cors')
-const Users = require('./users/users-model');
+const express = require('express');
+const helmet = require('helmet');
+const cors = require('cors');
+const usersRouter = require('./users/users-router');
+const authRouter = require('./auth/auth-router');
 
 const server = express()
 server.use(express.json())
 server.use(helmet())
 server.use(cors())
 
+server.use('/api/users', usersRouter);
+server.use('/api/auth', authRouter);
+
 server.get('/', (req, res) => {
   res.json('BTC Net Worth API - Root')
 })
 
-server.get('/api/users', async (req, res) => {
-
-  try {
-  res.json(await Users.getAllUsers())
-  } catch (err){
-
-    res.status(500).json({ message: 'error in retrieving users'})
-  }
-})
-
-server.post('/api/users', async (req, res) => {
-  res.status(201).json(await Users.insertUser(req.body))
-})
+server.use((err, req, res, next) => { // eslint-disable-line
+  res.status(err.status || 500).json({
+    message: err.message,
+    stack: err.stack,
+  });
+});
 
 module.exports = server
