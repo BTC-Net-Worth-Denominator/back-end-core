@@ -1,6 +1,16 @@
+// Imports
+
 const router = require('express').Router();
 const Users = require('../users/users-model');
 const bcrypt = require('bcryptjs');
+const {
+
+    checkUsernameExists,
+    checkUsernameFree,
+  
+  } = require('./auth-middleware');
+
+// Endpoints
 
 router.post('/register', (req, res, next) => {
     res.json('register endpoint')
