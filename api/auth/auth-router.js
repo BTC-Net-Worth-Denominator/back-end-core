@@ -5,10 +5,8 @@ const jwt = require('jsonwebtoken');
 const { JWT_SECRET } = require('./secrets/index');
 const bcrypt = require('bcryptjs');
 const {
-
     checkUsernameExists,
     checkUsernameFree,
-  
   } = require('./auth-middleware');
 
 // Endpoints
@@ -24,20 +22,20 @@ router.post('/register', (req, res, next) => {
     .catch(next)
 })
 
-function buildToken (user) {
+// function buildToken (user) {
+//     const payload = {
+//         subject: user.user_id,
+//         username: user.username
+//     }
+//     return jwt.sign(payload, JWT_SECRET)
+// }
 
-    const payload = {
-        subject: user.user_id,
-        username: user.username
-    }
-
-    return jwt.sign(payload, JWT_SECRET)
-}
+// endpoint not working, returning: "Cannot read property 'password' of undefined"
 
 router.post('/login', (req, res, next) => {
 
-    const { password } = req.body
-    if (bcrypt.compareSync(password, req.user.password)) {
+
+    if (bcrypt.compareSync(req.body.password, req.user.password)) {
 
       req.session.user = req.user 
       res.json({ message: `Welcome ${req.user.username}`})
@@ -47,6 +45,8 @@ router.post('/login', (req, res, next) => {
     }
 
 })
+
+// endpoint not working, returning: "Cannot read property 'user' of undefined"
 
 router.get('/logout', (req, res, next) => {
 
