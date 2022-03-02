@@ -22,16 +22,6 @@ router.post('/register', (req, res, next) => {
     .catch(next)
 })
 
-// function buildToken (user) {
-//     const payload = {
-//         subject: user.user_id,
-//         username: user.username
-//     }
-//     return jwt.sign(payload, JWT_SECRET)
-// }
-
-// endpoint not working, returning: "Cannot read property 'password' of undefined"
-
 router.post('/login', async (req, res, next) => {
 
     const user = await Users.findBy({username: req.body.username}).first()
