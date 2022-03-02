@@ -2,7 +2,7 @@ const router = require('express').Router();
 const Users = require('./users-model');
 const { restricted } = require('../auth/auth-middleware');
 
-router.get('/', async (req, res) => {
+router.get('/', /* add restricted middleware */ async (req, res) => {
 
     try {
     res.json(await Users.getAllUsers())
@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
     }
   })
   
-router.get('/:user_id', /* add restricted middelware */ (req, res, next) => {
+router.get('/:user_id', /* add restricted middleware */ (req, res, next) => {
     
         Users.findById(req.params.user_id)
         .then(user => {

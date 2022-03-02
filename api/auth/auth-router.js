@@ -50,7 +50,7 @@ router.get('/logout', (req, res, next) => {
             }
         })
     } else {
-        res.json({ message: 'Logout failed, user was not logged in.'})
+        res.json({ message: 'Logout failed, user had no session'})
     }
 })
 
