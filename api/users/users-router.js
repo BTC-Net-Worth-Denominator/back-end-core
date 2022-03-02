@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
   
 router.get('/:user_id', /* add restricted middelware */ (req, res, next) => {
     
-        Users.finById(req.params.user_id)
+        Users.findById(req.params.user_id)
         .then(user => {
           res.json(user);
         })
