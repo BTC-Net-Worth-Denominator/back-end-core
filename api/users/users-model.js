@@ -2,6 +2,11 @@ const db = require('../../api/data/db-config');
 
 function getAllUsers() { return db('users') }
 
+function findBy (filter){
+  return db('users')
+    .where(filter)
+}
+
 function findById(user_id) {
 
     return db('users')
@@ -18,6 +23,7 @@ async function insertUser(user) {
 module.exports = {
 
     getAllUsers,
+    findBy,
     findById,
     insertUser
 }

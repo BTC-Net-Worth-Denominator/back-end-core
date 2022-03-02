@@ -32,13 +32,14 @@ router.post('/register', (req, res, next) => {
 
 // endpoint not working, returning: "Cannot read property 'password' of undefined"
 
-router.post('/login', (req, res, next) => {
+router.post('/login', async (req, res, next) => {
+
+    const user = await Users.findBy({username: req.body.username}).first()
 
 
-    if (bcrypt.compareSync(req.body.password, req.user.password)) {
+    if (bcrypt.compareSync(req.body.password, user.password)) {
 
-      req.session.user = req.user 
-      res.json({ message: `Welcome ${req.user.username}`})
+      res.json({ message: `Welcome ${user.username}`})
 
     } else {
       next({ status: 401, message: 'Invalid credentials'})
