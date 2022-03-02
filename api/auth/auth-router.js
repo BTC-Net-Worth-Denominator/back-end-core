@@ -20,7 +20,7 @@ router.post('/login', (req, res, next) => {
     res.json('login endpoint')
 })
 
-router.get('logout', (req, res, next) => {
+router.get('/logout', (req, res, next) => {
     res.json('logout endpoint')
 })
 
