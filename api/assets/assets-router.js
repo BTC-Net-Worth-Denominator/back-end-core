@@ -11,6 +11,8 @@ router.get("/", (req, res, next) => {
 
   });
 
+  // receiving error message: "insert into \"assets\" (\"asset_name\", \"asset_value\", \"user_id\") values ($1, $2, $3) returning \"asset_name\", \"asset_value\", \"user_id\" - column \"asset_value\" of relation \"assets\" does not exist",
+
 router.post('/', async (req, res, next) => {
 
     try {
@@ -23,6 +25,8 @@ router.post('/', async (req, res, next) => {
       }
 
 })
+
+// receiving error message: "Undefined binding(s) detected when compiling FIRST. Undefined column(s): [asset_id] query: select * from \"assets\" where \"asset_id\" = ? limit ?" from posting endpoint
 
 router.get("/:asset_id", async (req, res, next) => {
 
@@ -40,6 +44,8 @@ router.get("/:asset_id", async (req, res, next) => {
       }
 
 });
+
+// receiving error message: "Undefined binding(s) detected when compiling FIRST. Undefined column(s): [asset_id] query: select * from \"assets\" where \"asset_id\" = ? limit ?",
 
 router.delete('/asset_id', async (req, res, next) => {
     

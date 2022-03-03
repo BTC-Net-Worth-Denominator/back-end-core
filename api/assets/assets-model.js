@@ -9,7 +9,7 @@ async function addAssets (assets) {
     const [newAssets] = await db("assets").insert(assets, [
         "asset_name",
         "asset_value",
-        "asset_id",
+        "user_id",
       ]);
       return newAssets;
 }
