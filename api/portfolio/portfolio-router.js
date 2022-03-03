@@ -3,23 +3,25 @@ const Portfolio = require('./portfolio-model');
 
 router.get("/", (req, res, next) => {
 
-    res.json('Portfolio Endpoint')
-
-    // Portfolio.getPortfolio()
-    //   .then((assets) => {
-    //     res.json(assets);
-    //   })
-    //   .catch(next);
+    Portfolio.getPortfolio()
+      .then((assets) => {
+        res.json(assets);
+      })
+      .catch(next);
 
   });
 
-router.post('/', (req, res, next) => {
+router.post('/', async (req, res, next) => {
 
-    // Portfolio.addPortfolio()
-    // .then(() => {
+    try {
+        const newPortfolio = await Portfolio.addPortfolio({
+          ...req.body,
+        });
+        res.status(201).json(newPortfolio);
+      } catch (err) {
+        next(err);
+      }
 
-    // })
-    // .catch(next)
 })
 
 router.get("/:asset_id", async (req, res, next) => {
