@@ -3,11 +3,14 @@ const Portfolio = require('./portfolio-model');
 
 router.get("/", (req, res, next) => {
 
-    Portfolio.getPortfolio()
-      .then((assets) => {
-        res.json(assets);
-      })
-      .catch(next);
+    res.json('Portfolio Endpoint')
+
+    // Portfolio.getPortfolio()
+    //   .then((assets) => {
+    //     res.json(assets);
+    //   })
+    //   .catch(next);
+
   });
 
 router.post('/', (req, res, next) => {
