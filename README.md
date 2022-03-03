@@ -59,3 +59,36 @@ _Server Response_
 
 - `username: admin, password: 1234`
 - `username: bob, password: bob`
+
+### `[GET] /api/users`
+
+- Returns all users in database, currently public facing but will be restricted.
+
+_Server Response_
+
+```json
+{
+  "user_id": "1",
+  "username": "admin",
+},
+{
+  "user_id": "2",
+  "username": "peter",
+}
+"etc..."
+```
+
+### `[GET] /api/users/:user_id`
+
+- Returns user by their ID currently in database, currently public facing but will be restricted.
+
+_Server Response_
+
+```json
+{
+  "user_id": "1",
+  "username": "admin",
+}
+"etc..."
+```
+
