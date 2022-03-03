@@ -26,10 +26,14 @@ router.post('/login', async (req, res, next) => {
 
     const user = await Users.findBy({username: req.body.username}).first()
 
-
     if (bcrypt.compareSync(req.body.password, user.password)) {
 
-      res.json({ message: `Welcome ${user.username}`})
+        req.session.user = user 
+        const token = buildToken(user)
+        res.json({ 
+            message: `Welcome ${user.username}`,
+            token,
+            })
 
     } else {
       next({ status: 401, message: 'Invalid credentials'})
@@ -37,7 +41,21 @@ router.post('/login', async (req, res, next) => {
 
 })
 
-// endpoint not working, returning: "Cannot read property 'user' of undefined"
+function buildToken (user) {
+
+    const payload = {
+  
+      subject: user.user_id,
+      username: user.username,
+  
+    }
+    const options = {
+  
+      expiresIn: '1d',
+  
+    }
+    return jwt.sign(payload, JWT_SECRET, options)
+  }
 
 router.get('/logout', (req, res, next) => {
 
