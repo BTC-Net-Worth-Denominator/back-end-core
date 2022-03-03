@@ -55,7 +55,7 @@ _Server Response_
 <p>You will use the token given by the server for authentication.</p>
 <p>User ID should also be stored as this will be required in the header when adding items.</p>
 
-<p>Sample Credentials you can use for login testing:</p>
+<p>Sample Credentials you can use for login testing (seeded users):</p>
 
 - `username: admin, password: 1234`
 - `username: bob, password: bob`
