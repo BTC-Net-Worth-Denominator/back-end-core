@@ -94,7 +94,7 @@ _Server Response_
 
 ## PORTFOLIO & ASSET ENDPOINTS
 
-### `[GET] /api/portfolio/`
+### `[GET] /api/assets/
 
 **_RESTRICTED ENDPOINT_** (token required)
 
@@ -120,7 +120,7 @@ _Server Response_
 ]
 
 ```
-### `[POST] /api/portfolio/`
+### `[POST] /api/assets/`
 
 **_RESTRICTED ENDPOINT_** (token AND user_id required)
 
@@ -154,7 +154,7 @@ _Server Response:_
 }
 ```
 
-### `[GET] /api/portfolio/:asset_id`
+### `[GET] /api/assets/:asset_id`
 
 **_RESTRICTED ENDPOINT_** (token required)
 
@@ -171,7 +171,7 @@ _Server Response:_
 }
 ```
 
-### `[DELETE] /api/portfolio/:asset_id`
+### `[DELETE] /api/assets/:asset_id`
 
 **_RESTRICTED ENDPOINT_** (token required)
 
