@@ -3,6 +3,7 @@ const helmet = require('helmet');
 const cors = require('cors');
 const usersRouter = require('./users/users-router');
 const authRouter = require('./auth/auth-router');
+const portfolioRouter = require('./portfolio/portfolio-router');
 const session = require('express-session');
 const Store = require('connect-session-knex')(session);
 const knex = require('./data/db-config');
@@ -42,6 +43,8 @@ server.use(cors())
 
 server.use('/api/users', usersRouter);
 server.use('/api/auth', authRouter);
+server.use('/api/portfolio', portfolioRouter);
+
 
 server.get('/', (req, res) => {
   res.json('BTC Net Worth API - Root')
