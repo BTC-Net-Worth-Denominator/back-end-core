@@ -1,4 +1,5 @@
 exports.up = async (knex) => {
+
   await knex.schema
     .createTable('users', (users) => {
       users.increments('user_id')
@@ -9,7 +10,7 @@ exports.up = async (knex) => {
     .createTable("assets", (assets) => {
       assets.increments("asset_id");
       assets.string("asset_name", 128).notNullable();
-      assets.float("asset_price").notNullable();
+      assets.integer("asset_price").notNullable();
       assets
         .integer("user_id")
         .unsigned()
