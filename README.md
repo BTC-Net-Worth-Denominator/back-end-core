@@ -47,8 +47,8 @@ _Server Response_
 
 ```json
 {
-  "message": "Welcome, john!",
-  "user_id": 1
+  "message": "Welcome john",
+  "token": `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjozLCJ1c2VybmFtZSI6ImJvYiIsImlhdCI6MTY0NjMyNjE1NCwiZXhwIjoxNjQ2NDEyNTU0fQ.-J1wwMHT_H8C1CixAyoc0NFGQmTtvgr_yGDBK8dEZWs`
 }
 ```
 
@@ -57,6 +57,5 @@ _Server Response_
 
 <p>Sample Credentials you can use for login testing:</p>
 
-- `username: sam, password: 1234`
-
-- `username: frodo, password: 5678`
+- `username: admin, password: 1234`
+- `username: bob, password: bob`
