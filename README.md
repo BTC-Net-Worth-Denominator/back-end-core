@@ -92,7 +92,7 @@ _Server Response_
 "etc..."
 ```
 
-## ASSET & PORTFOLIO ENDPOINTS
+## PORTFOLIO & ASSET ENDPOINTS
 
 ### `[GET] /api/portfolio/`
 
@@ -106,10 +106,14 @@ _Server Response_
 [   {
         "asset_name": 'Real Estate',
         "asset_value": 100000,
+        "asset_id": 1,
+
     },
     {
         "asset_name": 'Equities',
         "asset_value": 555000,
+        "asset_id": 2,
+
     }
     "etc..."
 
@@ -131,10 +135,12 @@ _What You Send:_
 [ {
         "asset_name": 'Stocks',
         "asset_value": 777000,
+        "asset_id": 1,
     },
   {
         "asset_name": 'Bonds',
         "asset_value": 1000000,
+        "asset_id": 2,
     },
     "etc..."
 ]
@@ -148,66 +154,33 @@ _Server Response:_
 }
 ```
 
-<!-- ### `[GET] /api/items/:item_id`
+### `[GET] /api/portfolio/:asset_id`
 
 **_RESTRICTED ENDPOINT_** (token required)
 
-- Returns the single item associated with that item id. 
+- Returns the single asset associated with that asset_id. 
 
 _Server Response:_
 
 ```json
 {
-  "item_id": 1,
-  "item_name": "Rice",
-  "item_description": "Locally grown rice",
-  "item_price": 7.99,
-  "item_category": "Grains",
-  "user_id": 1
+  "asset_name": 'Bonds',
+  "asset_value": 1000000,
+  "asset_id": 2,
+  "username": 'admin'
 }
 ```
 
-### `[GET] /api/items/user/:user_id`
+### `[DELETE] /api/portfolio/:asset_id`
 
 **_RESTRICTED ENDPOINT_** (token required)
 
-- Returns all items added by a user with provided user id. 
-
-_Server Response:_
-
-```json
-[   
-    {
-        "item_id": 1,
-        "item_name": "Rice",
-        "item_description": "Locally grown long grain rice.",
-        "item_price": 7.99,
-        "item_category": "Grains",
-        "user_id": 1
-    },
-    {
-        "item_id": 2,
-        "item_name": "Bananas",
-        "item_description": "Locally grown bananas.",
-        "item_price": 12.99,
-        "item_category": "Fruits",
-        "user_id": 1
-    }
-    "etc..."
-
-]
-```
-
-### `[DELETE] /api/items/:item_id`
-
-**_RESTRICTED ENDPOINT_** (token required)
-
-- Deletes the single item with provided item id.
+- Deletes the single asset with provided asset_id.
 
 _Server Response:_
 
 ```json
 {
-    "message": "Deleted 1 item."
+    "message": "Deleted the asset ${asset name}."
 }
-``` -->
+```
