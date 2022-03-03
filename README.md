@@ -48,7 +48,7 @@ _Server Response_
 ```json
 {
   "message": "Welcome john",
-  "token": `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjozLCJ1c2VybmFtZSI6ImJvYiIsImlhdCI6MTY0NjMyNjE1NCwiZXhwIjoxNjQ2NDEyNTU0fQ.-J1wwMHT_H8C1CixAyoc0NFGQmTtvgr_yGDBK8dEZWs`
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjozLCJ1c2VybmFtZSI6ImJvYiIsImlhdCI6MTY0NjMyNjE1NCwiZXhwIjoxNjQ2NDEyNTU0fQ.-J1wwMHT_H8C1CixAyoc0NFGQmTtvgr_yGDBK8dEZWs"
 }
 ```
 
@@ -104,13 +104,13 @@ _Server Response_
 
 ```json
 [   {
-        "asset_name": 'Real Estate',
+        "asset_name": "Real Estate",
         "asset_value": 100000,
         "asset_id": 1,
 
     },
     {
-        "asset_name": 'Equities',
+        "asset_name": "Equities",
         "asset_value": 555000,
         "asset_id": 2,
 
@@ -133,12 +133,12 @@ _What You Send:_
 
 ```json
 [ {
-        "asset_name": 'Stocks',
+        "asset_name": "Stocks",
         "asset_value": 777000,
         "asset_id": 1,
     },
   {
-        "asset_name": 'Bonds',
+        "asset_name": "Bonds",
         "asset_value": 1000000,
         "asset_id": 2,
     },
@@ -150,7 +150,7 @@ _Server Response:_
 
 ```json
 {
-  'Your portfolio consisting of the Assets: Stocks & Bonds have been added'
+  "Your portfolio consisting of the Assets: Stocks & Bonds have been added"
 }
 ```
 
@@ -164,10 +164,10 @@ _Server Response:_
 
 ```json
 {
-  "asset_name": 'Bonds',
+  "asset_name": "Bonds",
   "asset_value": 1000000,
   "asset_id": 2,
-  "username": 'admin'
+  "username": "admin"
 }
 ```
 
