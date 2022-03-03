@@ -18,10 +18,15 @@ function getById(id) {
     return db("portfolio").where("asset_id", id).first();
   }
 
+function remove(asset_id) {
+    return db('portfolio').where({ asset_id }).del();
+}
+
 module.exports = {
 
     getPortfolio,
     addPortfolio,
     getById,
+    remove,
 
 }
