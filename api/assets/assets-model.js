@@ -6,11 +6,7 @@ function getAssets() {
 
 async function addAssets (assets) {
 
-    const [newAssets] = await db("assets").insert(assets, [
-        "asset_name",
-        "asset_value",
-        "user_id",
-      ]);
+    const [newAssets] = await db("assets").insert(assets)
       return newAssets;
 }
 

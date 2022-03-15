@@ -154,6 +154,34 @@ _Server Response:_
 }
 ```
 
+### `[PUT] /api/assets/:asset_id`
+
+**_RESTRICTED ENDPOINT_** (token AND user_id required)
+
+- Updates current asset in the database. 
+  - **required information:**
+  - _asset_name (string)_
+  - _asset_value (integer)_
+
+_What You Send:_
+
+```json
+[ {
+        "asset_name": "Stocks",
+        "asset_value": 777000,
+        "asset_id": 1,
+    }
+]
+```
+
+_Server Response:_
+
+```json
+{
+  "Your asset ${asset_name} has been updated."
+}
+```
+
 ### `[GET] /api/assets/:asset_id`
 
 **_RESTRICTED ENDPOINT_** (token required)
