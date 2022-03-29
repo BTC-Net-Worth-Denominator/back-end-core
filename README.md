@@ -104,12 +104,15 @@ _Server Response_
 
 ```json
 [   {
+        "user_id": 1,
         "asset_name": "Real Estate",
         "asset_value": 100000,
         "asset_id": 1,
 
     },
     {
+
+        "user_id": 2,
         "asset_name": "Equities",
         "asset_value": 555000,
         "asset_id": 2,
@@ -133,14 +136,16 @@ _What You Send:_
 
 ```json
 [ {
+        "asset_id": 1,
         "asset_name": "Stocks",
         "asset_value": 777000,
-        "asset_id": 1,
+        "user_id": 1
     },
   {
+        "asset_id": 2,
         "asset_name": "Bonds",
         "asset_value": 1000000,
-        "asset_id": 2,
+        "user_id": 2
     },
     "etc..."
 ]
@@ -167,9 +172,10 @@ _What You Send:_
 
 ```json
 [ {
+        "asset_id": 1,
         "asset_name": "Stocks",
         "asset_value": 777000,
-        "asset_id": 1,
+        "user_id": 2
     }
 ]
 ```
@@ -195,7 +201,7 @@ _Server Response:_
   "asset_name": "Bonds",
   "asset_value": 1000000,
   "asset_id": 2,
-  "username": "admin"
+  "user_id": 1
 }
 ```
 
