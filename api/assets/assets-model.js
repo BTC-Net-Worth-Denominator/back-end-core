@@ -7,7 +7,7 @@ function getAssets() {
 async function addAssets (assets) {
 
     const [newAssets] = await db("assets").insert(assets)
-      return newAssets;
+    return newAssets;
 }
 
 function getById(id) {

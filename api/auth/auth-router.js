@@ -19,7 +19,7 @@ router.post('/register', (req, res, next) => {
     .then(newUser => {
         res.status(201).json({
             message: `Successfully registered ${newUser.username}.`,
-            user_id: `${newUser.user_id}`
+            user_id:  newUser.user_id
         })
     })
     .catch(next)
@@ -36,6 +36,7 @@ router.post('/login', async (req, res, next) => {
         res.json({ 
             message: `Welcome ${user.username}`,
             token,
+            user_id: user.user_id
             })
 
     } else {
