@@ -45,7 +45,7 @@ router.delete("/:asset_id", async (req, res, next) => {
   try {
     const assetToDelete = await Assets.remove(req.params.asset_id);
     if (assetToDelete) {
-      res.status(200).json({ message: `Deleted ${assetToDelete} item.` });
+      res.status(200).json(assetToDelete);
     } else {
       res.status(401).json({ message: `Could not locate specific asset.` });
     }
