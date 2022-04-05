@@ -9,7 +9,7 @@ exports.up = async (knex) => {
     .createTable("assets", (assets) => {
       assets.increments("asset_id");
       assets.string("asset_name", 128).notNullable();
-      assets.integer("asset_price").notNullable();
+      assets.decimal("asset_price").notNullable();
       assets
         .integer("user_id")
         .unsigned()
