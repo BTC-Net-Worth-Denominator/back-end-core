@@ -22,7 +22,22 @@ router.post("/", async (req, res, next) => {
 
 // PUT Endpoint -- updates specific asset based on asset_id
 
-router.put("/:asset_id", (req, res, next) => {});
+router.put("/:asset_id", async (req, res, next) => {
+  try {
+    const asset = Assets.edit(req.params.asset_id, req.body);
+    if (asset) {
+      res.status(200).json({ 
+        message: `Your asset ${res.asset_name} has been updated.`
+      });
+    } else {
+      res.status(401).json({
+        message: `Asset with ID ${req.asset_id} does not exist.`,
+      });
+    }
+  } catch (err) {
+    next(err);
+  }
+});
 
 // receiving error message: "Undefined binding(s) detected when compiling FIRST. Undefined column(s): [asset_id] query: select * from \"assets\" where \"asset_id\" = ? limit ?" from posting endpoint
 

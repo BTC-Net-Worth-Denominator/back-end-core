@@ -24,9 +24,15 @@ async function remove(asset_id) {
     .del(["asset_id", "asset_name", "asset_price"]);
 }
 
+async function edit(id, changes) {
+  await db('assets').where("asset_id", id).update(changes)
+  return getById(id)
+}
+
 module.exports = {
   getAssets,
   addAssets,
   getById,
   remove,
+  edit
 };
