@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const Assets = require("./assets-model");
+const { restricted } = require('../auth/auth-middleware');
 
 router.get("/", (req, res, next) => {
   Assets.getAssets()
@@ -22,16 +23,16 @@ router.post("/", async (req, res, next) => {
 
 // PUT Endpoint -- updates specific asset based on asset_id
 
-router.put("/:asset_id", async (req, res, next) => {
+router.put("/:asset_id", restricted, async (req, res, next) => {
   try {
-    const asset = Assets.edit(req.params.asset_id, req.body);
+    const asset = await Assets.edit(req.params.asset_id, req.body);
     if (asset) {
       res.status(200).json({ 
-        message: `Your asset ${res.asset_name} has been updated.`
+        message: `Your asset ${asset.asset_name} has been updated.`
       });
     } else {
       res.status(401).json({
-        message: `Asset with ID ${req.asset_id} does not exist.`,
+        message: `Asset with ID ${req.params.asset_id} does not exist.`,
       });
     }
   } catch (err) {
